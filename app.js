@@ -9,7 +9,7 @@ const { Server } = require("http");
 //   apiKey:'6760d8a780cb2ea4f49e44c01936816d',
 //   server:'us21'
 // });
-app.use("/public", express.static("public")); //for accessing css and img for html file which was sent by app.get
+app.use("/assets", express.static("assets")); //for accessing css and img for html file which was sent by app.get
 app.use(bodyParser.urlencoded({ extended: true })); //for using body-parser
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/signup.html");
@@ -71,7 +71,7 @@ app.post("/", function (req, res) {
   //   // console.log(err);
   // }
 });
-app.post("/failure",function(req,res){
+app.post("/failure", function (req, res) {
   res.redirect("/");
 });
 
