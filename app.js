@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const app = express();
-// const mailchimp = require("@mailchimp/mailchimp_marketing"); //used for second method
+const mailchimp = require("@mailchimp/mailchimp_marketing"); //used for second method
 const { Server } = require("http");
 //used for second method
 // mailchimp.setConfig({
@@ -75,7 +75,7 @@ app.post("/failure",function(req,res){
   res.redirect("/");
 });
 
-app.listen(3000 || process.env.PORT, function () {
+app.listen(3000, function () {
   //for cheking your server is running or not
   console.log("server is running on port 3000");
 });
