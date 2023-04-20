@@ -13,7 +13,7 @@ const { Server } = require("http");
 app.use("/public", express.static("public")); //for accessing css and img for html file which was sent by app.get
 app.use(bodyParser.urlencoded({ extended: true })); //for using body-parser
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + "/htmlfile/signup.html");
+  res.sendFile(__dirname + "/public/signup.html");
 });
 app.post("/", function (req, res) {
   //post send by signup.html file
@@ -43,9 +43,9 @@ app.post("/", function (req, res) {
   };
   const request = https.request(url, options, function (response) {
     if (response.statusCode == 200) {
-      res.sendFile(__dirname + "/htmlfile/success.html");
+      res.sendFile(__dirname + "/public/success.html");
     } else {
-      res.sendFile(__dirname + "/htmlfile/failure.html");
+      res.sendFile(__dirname + "/public/failure.html");
     }
     response.on("data", function (data) {
       // console.log(JSON.parse(data));
